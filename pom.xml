@@ -44,7 +44,6 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/lordrose1951890/pet-clinic-with-spring.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
 
 </project>
