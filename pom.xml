@@ -14,7 +14,7 @@
     </parent>
     <groupId>org.lordrose</groupId>
     <artifactId>pet-clinic-with-spring</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>pet-clinic-with-spring</name>
     <description>An iconic sample Spring based application</description>
 
@@ -33,6 +33,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                     <checkModificationExcludes>
                         <checkModificationExclude>pom.xml</checkModificationExclude>
                     </checkModificationExcludes>
@@ -43,7 +44,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/lordrose1951890/pet-clinic-with-spring.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>pet-clinic-with-spring-0.0.2</tag>
   </scm>
 
 </project>
