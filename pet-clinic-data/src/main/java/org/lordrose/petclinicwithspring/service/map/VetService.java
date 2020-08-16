@@ -1,0 +1,35 @@
+package org.lordrose.petclinicwithspring.service.map;
+
+import org.lordrose.petclinicwithspring.model.Vet;
+import org.lordrose.petclinicwithspring.service.CrudService;
+
+import java.util.Set;
+
+public class VetService extends AbstractMapService<Vet, Long>
+        implements CrudService<Vet, Long> {
+
+    @Override
+    public Set<Vet> findAll() {
+        return super.findAll();
+    }
+
+    @Override
+    public Vet findById(Long id) {
+        return super.findById(id);
+    }
+
+    @Override
+    public Vet save(Vet object) {
+        return super.save(object.getId(), object);
+    }
+
+    @Override
+    public void delete(Vet object) {
+        super.delete(object);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        super.deleteById(id);
+    }
+}
