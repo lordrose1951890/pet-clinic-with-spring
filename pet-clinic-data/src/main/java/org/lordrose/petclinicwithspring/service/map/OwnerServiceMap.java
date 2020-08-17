@@ -1,12 +1,12 @@
 package org.lordrose.petclinicwithspring.service.map;
 
 import org.lordrose.petclinicwithspring.model.Owner;
-import org.lordrose.petclinicwithspring.service.CrudService;
+import org.lordrose.petclinicwithspring.service.OwnerService;
 
 import java.util.Set;
 
 public class OwnerServiceMap extends AbstractMapService<Owner, Long>
-        implements CrudService<Owner, Long> {
+        implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -31,5 +31,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long>
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Set<Owner> findByLastName(String lastName) {
+        throw  new UnsupportedOperationException("This method is not yet implemented");
     }
 }

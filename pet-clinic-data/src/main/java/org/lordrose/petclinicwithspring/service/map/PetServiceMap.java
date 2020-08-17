@@ -1,12 +1,12 @@
 package org.lordrose.petclinicwithspring.service.map;
 
 import org.lordrose.petclinicwithspring.model.Pet;
-import org.lordrose.petclinicwithspring.service.CrudService;
+import org.lordrose.petclinicwithspring.service.PetService;
 
 import java.util.Set;
 
 public class PetServiceMap extends AbstractMapService<Pet, Long>
-        implements CrudService<Pet, Long> {
+        implements PetService {
 
     @Override
     public Set<Pet> findAll() {
