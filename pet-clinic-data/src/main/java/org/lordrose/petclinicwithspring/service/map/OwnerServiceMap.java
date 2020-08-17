@@ -2,9 +2,11 @@ package org.lordrose.petclinicwithspring.service.map;
 
 import org.lordrose.petclinicwithspring.model.Owner;
 import org.lordrose.petclinicwithspring.service.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long>
         implements OwnerService {
 

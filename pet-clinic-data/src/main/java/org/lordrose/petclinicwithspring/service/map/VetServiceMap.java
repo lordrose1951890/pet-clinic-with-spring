@@ -2,9 +2,11 @@ package org.lordrose.petclinicwithspring.service.map;
 
 import org.lordrose.petclinicwithspring.model.Vet;
 import org.lordrose.petclinicwithspring.service.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long>
         implements VetService {
 
