@@ -5,10 +5,12 @@ import org.lordrose.petclinicwithspring.model.Pet;
 import org.lordrose.petclinicwithspring.model.PetType;
 import org.lordrose.petclinicwithspring.model.Specialty;
 import org.lordrose.petclinicwithspring.model.Vet;
+import org.lordrose.petclinicwithspring.model.Visit;
 import org.lordrose.petclinicwithspring.service.OwnerService;
 import org.lordrose.petclinicwithspring.service.PetTypeService;
 import org.lordrose.petclinicwithspring.service.SpecialtyService;
 import org.lordrose.petclinicwithspring.service.VetService;
+import org.lordrose.petclinicwithspring.service.VisitService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -21,17 +23,20 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
     public DataLoader(OwnerService ownerService, VetService vetService,
-                      PetTypeService petTypeService, SpecialtyService specialtyService) {
+                      PetTypeService petTypeService, SpecialtyService specialtyService,
+                      VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         int count = petTypeService.findAll().size();
 
         if (count == 0) {
@@ -109,6 +114,15 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(owner3);
 
         System.out.println("## Loaded Owners");
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(pacificaPet);
+        catVisit.setDescription("Monthly checkup");
+        catVisit.setDate(LocalDate.now());
+
+        visitService.save(catVisit);
+
+        System.out.println("## Loaded Visit");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Wendy");
