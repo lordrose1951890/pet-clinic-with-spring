@@ -5,11 +5,13 @@ import org.lordrose.petclinicwithspring.model.Pet;
 import org.lordrose.petclinicwithspring.service.OwnerService;
 import org.lordrose.petclinicwithspring.service.PetService;
 import org.lordrose.petclinicwithspring.service.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long>
         implements OwnerService {
 
