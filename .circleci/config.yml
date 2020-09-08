@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  slack: circleci/slack@3.4.2
 jobs:
   build:
     docker:
@@ -29,3 +31,6 @@ jobs:
 
       # run tests!
       - run: mvn integration-test
+      - slack/status:
+          fail_only: false
+          mentions: 'U01A2H4C8GM'
