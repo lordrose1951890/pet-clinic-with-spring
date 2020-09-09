@@ -41,14 +41,14 @@ class OwnerJPAServiceTest {
         Set<Owner> returnOwners = new HashSet<>();
         returnOwners.add(Owner.builder().id(1L).lastName(LAST_NAME).build());
 
-        when(ownerRepository.findByLastName(any())).thenReturn(returnOwners);
+        when(ownerRepository.findAllByLastNameContaining(any())).thenReturn(returnOwners);
 
-        Set<Owner> result = ownerService.findByLastName(LAST_NAME);
+        Set<Owner> result = ownerService.findAllByLastName(LAST_NAME);
         Optional<Owner> josh = result.stream().findFirst();
 
         assertTrue(josh.isPresent());
         assertEquals(LAST_NAME, result.stream().findFirst().get().getLastName());
-        verify(ownerRepository).findByLastName(any());
+        verify(ownerRepository).findAllByLastNameContaining(any());
     }
 
     @Test

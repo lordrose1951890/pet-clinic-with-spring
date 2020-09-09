@@ -7,5 +7,5 @@ import java.util.Set;
 
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
 
-    Set<Owner> findByLastName(String lastName);
+    Set<Owner> findAllByLastNameContaining(String lastName);
 }

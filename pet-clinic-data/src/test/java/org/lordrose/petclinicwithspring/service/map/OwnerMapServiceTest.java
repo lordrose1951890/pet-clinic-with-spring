@@ -80,7 +80,7 @@ class OwnerMapServiceTest {
 
     @Test
     void findByLastName() {
-        Set<Owner> result = ownerMapService.findByLastName(josh);
+        Set<Owner> result = ownerMapService.findAllByLastName(josh);
 
         assertEquals(1, result.size());
         assertEquals(josh, result.stream().findFirst().get().getLastName());
@@ -88,7 +88,7 @@ class OwnerMapServiceTest {
 
     @Test
     void findByLastNameNotFound() {
-        Set<Owner> result = ownerMapService.findByLastName("foo");
+        Set<Owner> result = ownerMapService.findAllByLastName("foo");
 
         assertEquals(0, result.size());
     }
