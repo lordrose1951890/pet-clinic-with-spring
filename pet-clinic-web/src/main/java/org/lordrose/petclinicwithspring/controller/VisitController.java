@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/owners/{ownerId}/pets/{petId}/visits")
 public class VisitController {
@@ -50,7 +52,7 @@ public class VisitController {
     }
 
     @PostMapping("/new")
-    public String processCreateForm(Visit visit, BindingResult result) {
+    public String processCreateForm(@Valid Visit visit, BindingResult result) {
         if (result.hasErrors()) {
             return VIEWS;
         } else {

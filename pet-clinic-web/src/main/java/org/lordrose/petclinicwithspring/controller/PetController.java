@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 @Controller
@@ -62,7 +63,7 @@ public class PetController {
     }
 
     @PostMapping("/new")
-    public String processCreateForm(Owner owner, Pet pet,
+    public String processCreateForm(Owner owner, @Valid Pet pet,
                                     BindingResult result, Model model) {
         if (!isCreateFormValid(owner, pet)) {
             result.rejectValue(
@@ -85,7 +86,7 @@ public class PetController {
     }
 
     @PostMapping("/{petId}/edit")
-    public String processUpdateForm(Pet pet, BindingResult result,
+    public String processUpdateForm(@Valid Pet pet, BindingResult result,
                                     Owner owner, Model model) {
         if (result.hasErrors()) {
             pet.setOwner(owner);
